@@ -100,3 +100,7 @@ a {
 .floating-panel.w70 {
     width: 70%;
 }
+
+.message-input {
+    border: solid 1px purple;
+}

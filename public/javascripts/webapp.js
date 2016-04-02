@@ -194,7 +194,22 @@ var ChatList = React.createClass({
 });
 
 var MessageInput = React.createClass({
-
+    getInitialState: function () {
+        return {value: ''};
+    },
+    handleChange: function (e) {
+        this.setState({value: e.target.innerHTML});
+    },
+    render: function () {
+        return (
+            <div className="message-input">
+                <div>
+                    <textarea onChange={this.handleChange}>{this.state.value}</textarea>
+                </div>
+                <div>Other actions</div>
+            </div>
+        );
+    }
 });
 
 var Messenger = React.createClass({
@@ -212,6 +227,7 @@ var Messenger = React.createClass({
                     <div className="floating-panel w70">
                         <div className="chat-title"></div>
                         <ChatList messages={this.props.messages}/>
+                        <MessageInput/>
                     </div>
                 </div>
             </div>
