@@ -146,8 +146,12 @@ var OnlineUsers = React.createClass({
             );
         });
         return (
-            <div className="list-panel">
-                {listNodes}
+            <div id="ADIC" className="nano">
+                <div className="nano-content">
+                    <div className="list-panel">
+                        {listNodes}
+                    </div>
+                </div>
             </div>
         );
     }
@@ -173,7 +177,13 @@ var FilterableOnlineUsersList = React.createClass({
 var ChatItem = React.createClass({
     render: function () {
         return (
-            <div className={'chat-item'}>{this.props.content}</div>
+            <div className={'chat-item'}>
+                <div className="chat-sender"><img src=""/></div>
+                <div className="chat-content">
+                    <div className="chat-sender-name">{this.props.fromUsername}</div>
+                    <div>{this.props.content}</div>
+                </div>
+            </div>
         );
     }
 });
@@ -182,7 +192,12 @@ var ChatList = React.createClass({
     render: function () {
         var chatNodes = this.props.messages.map(function (chat) {
             return (
-                <ChatItem content={chat.content} fromUser={chat.fromUser} ts={chat.ts}/>
+                <ChatItem
+                    content={chat.content}
+                    fromUser={chat.fromUser}
+                    ts={chat.ts}
+                    key={chat.id}
+                    fromUsername={chat.fromUsername}/>
             );
         });
         return (
@@ -215,7 +230,7 @@ var MessageInput = React.createClass({
 var ChatRoom = React.createClass({
     render: function () {
         return (
-            <div>
+            <div className="chat-panel">
                 <div className="chat-title">{this.props.chattingWith}</div>
                 <ChatList messages={this.props.messages}/>
                 <MessageInput/>
@@ -246,8 +261,13 @@ var Messenger = React.createClass({
 });
 
 var DUMMY_CHAT = [
-    {content: 'This is a test', fromUser: 1024, ts: Date.now()},
-    {content: 'This is a test 2', fromUser: 1025, ts: Date.now()}
+    {content: 'This is a test', fromUser: 1024, ts: Date.now(), id: 0.7, fromUsername: 'anurag'},
+    {
+        content: 'The onChange event behaves as you would expect it to: whenever a form field is changed this event is fired rather than inconsistently on blur. We intentionally break from existing browser behavior because onChange is a misnomer for its behavior and React relies on this event to react to user input in real time. See Forms for more details.',
+        fromUser: 1025,
+        ts: Date.now(),
+        id: 0.6, fromUsername: 'riva'
+    }
 ];
 
 var ONLINE_USERS = [
@@ -255,11 +275,23 @@ var ONLINE_USERS = [
     {id: 0.2, name: "Batman"},
     {id: 0.3, name: "Darksied"},
     {id: 0.4, name: "Matron"},
-    {id: 0.5, name: "Anurag Gautam"},
+    {id: 0.51, name: "Anurag Gautam"},
+    {id: 0.61, name: "Anurag Gautam"},
+    {id: 0.71, name: "Anurag Gautam"},
+    {id: 0.80, name: "Anurag Gautam"},
+    {id: 0.90, name: "Anurag Gautam"},
+    {id: 0.112, name: "Anurag Gautam"},
+    {id: 0.121, name: "Anurag Gautam"},
+    {id: 0.120, name: "Anurag Gautam"},
+    {id: 0.130, name: "Anurag Gautam"},
+    {id: 0.140, name: "Anurag Gautam"},
+    {id: 0.160, name: "Anurag Gautam"}
 ];
 
 
 $(document).ready(function () {
+    $(".nano").nanoScroller();
+
     if (Lockr.get('session')) {
         ReactDOM.render(<Messenger messages={DUMMY_CHAT} chattingWith="Anurag"/>, document.getElementById('content'));
     } else {

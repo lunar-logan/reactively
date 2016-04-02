@@ -10,6 +10,12 @@ a {
     color: #00B7FF;
 }
 
+#content {
+    width: 900px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
 .text-field {
     padding: 12px 1% 12px;
     border: none;
@@ -57,9 +63,29 @@ a {
 
 }
 
-.list-panel {
-    border: solid 1px steelblue;
+.nano {
+    height: 80vh;
     overflow: auto;
+    overflow-x: hidden;
+    border: solid 1px hotpink;
+}
+
+.list-panel {
+    /*border: solid 1px steelblue;*/
+    /*overflow: auto;*/
+    /*height: 30vh;*/
+}
+
+.nano .nano-content {
+    /*padding: 10px;*/
+}
+
+.nano .nano-pane {
+    background: #888;
+}
+
+.nano .nano-slider {
+    background: #111;
 }
 
 .list-item {
@@ -69,23 +95,60 @@ a {
 
 .online-user-list {
     overflow: auto;
-    border: solid 1px steelblue;
-    padding: 2px;
+    /*border: solid 1px steelblue;*/
+    padding: 0 12px;
+}
+
+.chat-title {
+    padding-top: 10px;
+    padding-bottom: 10px;
+    border-bottom: solid 2px #e8e8e8;
+    margin-bottom: 10px;
+    /*text-align: center;*/
+    /*box-shadow: 0 1px 4px #767676;*/
 }
 
 .chat-item {
     overflow: auto;
-    background: steelblue;
-    color: #ffffff;
-    margin-bottom: 4px;
+    color: #000;
     font-size: 14px;
-    padding: 6px;
+    padding-bottom: 10px;
+    margin-bottom: 10px;
+    border-bottom: solid 1px #f4f4f4;
+}
+
+.chat-item .chat-sender-name {
+    font-weight: bold;
+    color: #00B7FF;
+}
+
+.chat-item .chat-sender {
+    float: left;
+    overflow: auto;
+    padding: 2px;
+    height: 100%;
+}
+
+.chat-sender img {
+    width: 32px;
+    height: 32px;
+    border-radius: 32px;
+    border: solid 1px darkred;
+}
+
+.chat-item .chat-content {
+    float: left;
+    overflow: auto;
+    /*outline: solid 1px pink;*/
+    width: 560px;
+    margin-left: 8px;
+    word-wrap: break-word;
 }
 
 .chat-room {
     overflow: auto;
     border: solid 1px green;
-    padding: 4px;
+    padding: 0;
 }
 
 .chat-room .floating-panel {
@@ -103,4 +166,10 @@ a {
 
 .message-input {
     border: solid 1px purple;
+}
+
+.chat-panel {
+    border-left: solid 2px #e8e8e8;
+    padding-left: 12px;
+    overflow: auto;
 }
