@@ -204,9 +204,21 @@ var MessageInput = React.createClass({
         return (
             <div className="message-input">
                 <div>
-                    <textarea onChange={this.handleChange}>{this.state.value}</textarea>
+                    <textarea onChange={this.handleChange} placeholder="Type a message...">{this.state.value}</textarea>
                 </div>
                 <div>Other actions</div>
+            </div>
+        );
+    }
+});
+
+var ChatRoom = React.createClass({
+    render: function () {
+        return (
+            <div>
+                <div className="chat-title">{this.props.chattingWith}</div>
+                <ChatList messages={this.props.messages}/>
+                <MessageInput/>
             </div>
         );
     }
@@ -225,9 +237,7 @@ var Messenger = React.createClass({
                         <FilterableOnlineUsersList users={ONLINE_USERS}/>
                     </div>
                     <div className="floating-panel w70">
-                        <div className="chat-title"></div>
-                        <ChatList messages={this.props.messages}/>
-                        <MessageInput/>
+                        <ChatRoom messages={this.props.messages} chattingWith={this.props.chattingWith}/>
                     </div>
                 </div>
             </div>
@@ -252,7 +262,7 @@ var ONLINE_USERS = [
 
 $(document).ready(function () {
     if (Lockr.get('session')) {
-        ReactDOM.render(<Messenger messages={DUMMY_CHAT}/>, document.getElementById('content'));
+        ReactDOM.render(<Messenger messages={DUMMY_CHAT} chattingWith="Anurag"/>, document.getElementById('content'));
     } else {
         ReactDOM.render(
             <div>
