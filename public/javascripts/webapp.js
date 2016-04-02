@@ -256,7 +256,6 @@ var ONLINE_USERS = [
     {id: 0.3, name: "Darksied"},
     {id: 0.4, name: "Matron"},
     {id: 0.5, name: "Anurag Gautam"},
-    {id: 0.6, name: "Nitisha Tokhi"}
 ];
 
 
