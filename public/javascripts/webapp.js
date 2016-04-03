@@ -106,7 +106,13 @@ var LoginForm = React.createClass({
 var ListItem = React.createClass({
     render: function () {
         return (
-            <div id={this.props.id} className="list-item">{this.props.value}</div>
+            <div id={this.props.id} className="list-item">
+                <div className="online-user-item-image"><img src=""/></div>
+                <div className="online-user-item-content">
+                    <div className="online-user-item-username">{this.props.name}</div>
+                    <div className="online-user-item-message">{this.props.lastMessage}</div>
+                </div>
+            </div>
         );
     }
 });
@@ -142,7 +148,7 @@ var OnlineUsers = React.createClass({
         });
         var listNodes = onlineUsers.map(function (user) {
             return (
-                <ListItem id={user.id} key={user.id} value={user.name}/>
+                <ListItem id={user.id} key={user.id} name={user.name} lastMessage={'Here comes the last message okay i get it'}/>
             );
         });
         return (

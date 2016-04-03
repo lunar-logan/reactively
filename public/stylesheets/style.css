@@ -67,7 +67,7 @@ a {
     height: 80vh;
     overflow: auto;
     overflow-x: hidden;
-    border: solid 1px hotpink;
+    /*border: solid 1px hotpink;*/
 }
 
 .list-panel {
@@ -90,8 +90,24 @@ a {
 
 .list-item {
     display: block;
-    border: solid 1px crimson;
+    overflow: auto;
+    margin-bottom: 5px;
+    cursor: pointer;
 }
+
+.list-item:hover {
+    background: #cccccc;
+}
+
+.list-item:active {
+    background: dodgerblue;
+    color: #ffffff;
+}
+
+/*.list-item:nth-child(odd) {*/
+/*background: #00B7FF;*/
+/*color: #ffffff;*/
+/*}*/
 
 .online-user-list {
     overflow: auto;
@@ -172,4 +188,34 @@ a {
     border-left: solid 2px #e8e8e8;
     padding-left: 12px;
     overflow: auto;
+}
+
+.online-user-item-image {
+    float: left;
+}
+
+.online-user-item-image img {
+    width: 40px;
+    height: 40px;
+    border-radius: 6px;
+}
+
+.online-user-item-username {
+    font-size: 14px;
+    font-weight: bold;
+}
+
+.online-user-item-message {
+    font-size: 14px;
+    color: #888888;
+}
+
+.online-user-item-content {
+    float: left;
+    /*border: solid 1px plum;*/
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+    padding-left: 10px;
+    width: 190px;
 }
